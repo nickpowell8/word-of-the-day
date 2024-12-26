@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word of the Day</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1 class="header">Get Your Word of the Day</h1>
+    <div class="form-container">
+        <form id="word-day-form" action="{{ url_for('word_of_day') }}" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="user-name">Enter your name:</label>
+                <input class="form-input" type="text" id="user-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="difficulty-level">Choose a difficulty (1-5):</label>
+                <select class="form-select" id="difficulty-level" name="difficulty">
+                    <option value="1">Easy (1 Syllable)</option>
+                    <option value="2">Medium (2 Syllables)</option>
+                    <option value="3">Normal (3 Syllables)</option>
+                    <option value="4">Challenging (4 Syllables)</option>
+                    <option value="5">Expert (5+ Syllables)</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Get Word</button>
+        </form>
+    </div>
+    {% if success %}
+    <h2 id="word-result" class="word-container">Your Word of the Day is:</h2>
+    <p id="word-display" class="word-title">{{ word }}</p>
+    <p id="definition-display" class="word-definition">{{ definition }}</p>
+    {% elif flash_messages %}
+    <ul>
+        {% for message in get_flashed_messages() %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learning History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1 class="header">Your Learning History</h1>
+    <div class="form-container">
+        <form id="history-form" action="{{ url_for('history') }}" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="history-name">Enter your name:</label>
+                <input class="form-input" type="text" id="history-name" name="name" required>
+            </div>
+            <button class="btn btn-primary" type="submit">View History</button>
+        </form>
+
+        {% if words %}
+        <div class="table-container">
+            <table id="history-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for word in words %}
+                    <tr>
+                        <td>{{ word['word'] }}</td>
+                        <td>{{ word['date'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+
+
+</body>
+
+</html>
+
+{% endblock %}

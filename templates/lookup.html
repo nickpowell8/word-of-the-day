@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word Lookup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1 class="header">Word Lookup</h1>
+    <div class="form-container">
+        <form id="lookup-form" action="{{ url_for('lookup') }}" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="lookup-word">Enter a word:</label>
+                <input class="form-input" type="text" id="lookup-word" name="word" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Look Up</button>
+        </form>
+
+        {% if definition %}
+        <div id="word-result" class="word-container">
+            <h2 id="word-display" class="word-title">{{ word }}</h2>
+            <p id="definition-display" class="word-definition">{{ definition }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

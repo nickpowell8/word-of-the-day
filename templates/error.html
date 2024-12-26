@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title class="header">Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <h1>Oops! An Error Occurred</h1>
+
+    {% if error.code == 404 %}
+    <p>The page you are looking for could not be found.</p>
+    {% elif error.code == 500 %}
+    <p>An internal server error occurred. Please try again later.</p>
+    <p>If the issue persists please contact the administrator.</p>
+    {% else %}
+    <p>An unexpected error has occurred.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('index') }}">Go back to the home page</a></p>
+</body>
+
+</html>

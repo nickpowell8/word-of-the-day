@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="index-header">
+    <h1 id="main-title" class="index-title">Welcome to Dictionary Learning</h1>
+    <p id="main-subtitle" class="index-subtitle">Expand your vocabulary one word at a time</p>
+</div>
+
+<div class="features-grid">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <div id="lookup-card" class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h2 class="feature-title">Dictionary Lookup</h2>
+        <p class="feature-description">Instantly look up definitions for any word in our comprehensive dictionary.
+            Enhance your understanding with detailed explanations.</p>
+        <a href="/lookup" class="feature-link">Start Looking Up</a>
+    </div>
+
+    <div id="word-day-card" class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h2 class="feature-title">Word of the Day</h2>
+        <p class="feature-description">Get a new word daily based on your chosen difficulty level. Challenge yourself to
+            learn something new every day.</p>
+        <a href="/word-of-day" class="feature-link">Get Today's Word</a>
+    </div>
+
+    <div id="history-card" class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h2 class="feature-title">Learning History</h2>
+        <p class="feature-description">Track your progress and review all the words you've learned. Build your
+            vocabulary systematically over time.</p>
+        <a href="/history" class="feature-link">View History</a>
+    </div>
+</div>
+{% endblock %}
