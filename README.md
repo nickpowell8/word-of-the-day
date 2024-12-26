@@ -25,7 +25,13 @@ the last option is to see previous words of the day you have viewed just by ente
 - Individual progress files for each user
 
 ## Prerequisites
-
+- Import requirements: 
+    from flask import Flask, render_template, request, jsonify, session, redirect, url_for, flash 
+    import json 
+    import random 
+    import csv from datetime 
+    import date import os 
+    from pathlib import Path
 - Python 3.x
 - Required files:
   - `dictionary_alpha_arrays.json` (dictionary database) 
